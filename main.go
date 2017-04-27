@@ -3,17 +3,19 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("zero")
-	fmt.Println("first")
-	fmt.Println("second")
-	fmt.Println("third")
-	fmt.Println("fore")
-	fmt.Println("five")
-	fmt.Println("six")
-	fmt.Println("seven")
-	fmt.Println("eight")
-	fmt.Println("nine")
-	fmt.Println("ten")
+	var str string
+	str += "zero"
+	str += "first"
+	str += "second"
+	str += "third"
+	str +="fore"
+	str += "five"
+	str += "six"
+	str += "seven"
+	str += "eight"
+	str += "nine"
+	str += "ten"
+	fmt.Println(fmt.Sprintf("str[%d]=%s", len(str), str))
 }
 
 
