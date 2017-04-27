@@ -1,5 +1,6 @@
 test:
   override:
+    - chmod a+x show_circleci_env.sh
     - sh ./show_circleci_env.sh
 
 deployment:
