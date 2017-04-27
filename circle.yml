@@ -1,0 +1,9 @@
+test:
+  override:
+    - sh ./show_circleci_env.sh
+
+deployment:
+  feature:
+    branch: master
+    commands:
+      - ./show_circleci_env.sh
