@@ -35,7 +35,7 @@ cp ../coverage.txt ./$CIRCLE_BRANCH
 git add .
 
 set +e
-git commit -m "Deploy to GitHub Pages"
+git commit -m "Deploy to GitHub Pages\n[ci skip]"
 if [ $? -gt 0 ]; then
   echo "nothing to commit."
   exit 0
@@ -63,14 +63,15 @@ echo "sending notification"
 USERNAME=${CIRCLE_PROJECT_USERNAME}
 REPONAME=${CIRCLE_PROJECT_REPONAME}
 GHPAGES_URL="https://${USERNAME}.github.com/${REPONAME}/${CIRCLE_BRANCH}"
-PULL_REQUEST_NUM=`echo "${CI_PULL_REQUEST}" | grep -o '\d$'`
+PULL_REQUEST_NUM=`echo "${CI_PULL_REQUEST}" | awk 'match($0, /\d*$/) {print substr($0, RSTART-1)}'`
 echo "PULL_REQUEST_NUM=${PULL_REQUEST_NUM}"
 APIURL="https://api.github.com/repos/${USERNAME}/${REPONAME}/issues/${PULL_REQUEST_NUM}/comments"
 echo "APIURL: _${APIURL}_"
-curl -X POST ${APIURL} \
-  -H 'accept: application/vnd.github.black-cat-preview+json' \
-  -H 'authorization: token ${GH_TOKEN}' \
-  -H 'content-type: application/json' \
-  -d '{"body":"coverage to ${GHPAGES_URL}"}'
+curl -i -X POST ${APIURL} \
+  -H "accept: application/vnd.github.black-cat-preview+json" \
+  -H "authorization: token ${GH_TOKEN}" \
+  -H "cache-control: no-cache" \
+  -H "content-type: application/json" \
+  -d "{\"body\":\"coverage to ${GHPAGES_URL}\"}"
 echo "Posted a comment on the pull request."
 

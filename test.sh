@@ -5,12 +5,13 @@ set -e
 echo "start test.sh >>>"
 
 #case1
-echo "hogehoge" | grep -o "geho"
+#echo "hogehoge" | grep -o "geho"
 
 #case2
-echo "hogehoge" | grep -o "geho" > test.txt
+#echo "hogehoge" | grep -o "geho" > test.txt
 echo "-- start test.txt ---"
-cat test.txt
+#cat test.txt
+grep -h
 echo "-- end test.txt ---"
 
 
