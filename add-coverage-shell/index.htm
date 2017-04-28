@@ -119,6 +119,15 @@ func sample(i int) <span class="cov8" title="1">{
 		
 		<pre class="file" id="file1" style="display: none">package lemon
 
+import "time"
+
+// Lemmon ...
+type Lemon struct {
+        Color string
+        ProductionArea string
+        CreatedAt time.Time
+}
+
 func sample(i int) <span class="cov8" title="1">{
         switch i </span>{
         case 0:<span class="cov8" title="1">
@@ -156,6 +165,7 @@ func sample(i int) <span class="cov8" title="1">{
                 break</span>
         }
 }
+
 </pre>
 		
 		<pre class="file" id="file2" style="display: none">package main
@@ -182,6 +192,12 @@ func main() <span class="cov8" title="1">{
 </pre>
 		
 		<pre class="file" id="file3" style="display: none">package melon
+
+import "time"
+
+type Melon struct {
+        CreatedAt time.Time
+}
 
 func sample(i int) <span class="cov8" title="1">{
         switch i </span>{
