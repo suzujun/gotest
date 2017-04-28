@@ -1,5 +1,14 @@
 package melon
 
+import "time"
+
+// Melon ...
+type Melon struct {
+	ProductionArea string
+	Color string
+	CreatedAt time.Time
+}
+
 func sample(i int) {
 	switch i {
 	case 0:
