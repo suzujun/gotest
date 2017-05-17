@@ -180,7 +180,7 @@ func main() <span class="cov8" title="1">{
         str += "zero"
         str += "zero"
         str += "zero"
-        str += "zero"
+        str += sample()
         str += "first"
         str += "second"
         str += "third"
@@ -194,7 +194,9 @@ func main() <span class="cov8" title="1">{
         fmt.Println(fmt.Sprintf("str[%d]=%s", len(str), str))
 }</span>
 
-
+func sample() string <span class="cov8" title="1">{
+        return "a"
+}</span>
 </pre>
 		
 		<pre class="file" id="file3" style="display: none">package melon
