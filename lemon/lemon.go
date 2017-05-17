@@ -1,5 +1,14 @@
 package lemon
 
+import "time"
+
+// Lemmon ...
+type Lemon struct {
+	Color string
+	ProductionArea string
+	CreatedAt time.Time
+}
+
 func sample(i int) {
 	switch i {
 	case 0:
@@ -37,3 +46,4 @@ func sample(i int) {
 		break
 	}
 }
+

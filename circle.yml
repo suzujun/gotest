@@ -1,7 +1,16 @@
+general:
+  branches:
+    ignore:
+      - gh-pages
+
 test:
   override:
     - chmod a+x show_circleci_env.sh
     - sh ./show_circleci_env.sh
+    #- sh ./test.sh
+    - sh ./coverage.sh
+  post:
+    - sh ./ghpages.sh 
 
 deployment:
   feature:
